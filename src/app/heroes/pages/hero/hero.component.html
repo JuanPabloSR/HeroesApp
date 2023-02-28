@@ -1,1 +1,36 @@
-<p>hero works!</p>
+<mat-grid-list cols="1" *ngIf="!character; else divCharacter">
+  <mat-grid-tile>
+    <mat-spinner color="accent"></mat-spinner>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divCharacter>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="mb-4">
+          <div>
+            <h1>{{ character.character }}</h1>
+
+            <h2><img src="/assets/Beli.svg" alt="bely">  {{ character.bounty }}</h2>
+            <hr>
+            <img [src]="character | image" alt="Photo of Character" class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card  bg-secondary mb-4">
+          <div class="card-body  ">
+            <ul class="list-group">
+              <li class="list-group-item ">Devil Fruit: {{ character.devil_fruit }}</li>
+              <li class="list-group-item ">First Appearance: {{ character.first_appearance }}</li>
+              <li class="list-group-item ">Affiliations: {{ character.affiliations }}</li>
+            </ul>
+            <br>
+            <button mat-raised-button color="warn" class="mb-2" (click)="return()">Return</button>
+          </div>
+        </div>
+      </div>
+    </div>á
+  </div>
+</ng-template>

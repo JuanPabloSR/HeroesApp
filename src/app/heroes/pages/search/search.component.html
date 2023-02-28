@@ -1,1 +1,40 @@
-<p>search works!</p>
+<div class="container">
+  <div class="d-flex flex-column">
+    <div class="p-2">
+      <h1>Search for character</h1>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="p-2">
+      <h3>Searchs</h3>
+
+      <mat-form-field class="flex-grow-1" appearance="fill">
+        <mat-label>Characters</mat-label>
+        <input
+          type="text"
+          placeholder="Search"
+          aria-label="characters"
+          matInput
+          [(ngModel)]="term"
+          [matAutocomplete]="auto"
+          (input)="searching()"
+        />
+
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          (optionSelected)="optionSelect($event)"
+        >
+          <mat-option *ngFor="let character of characters" [value]="character">
+            {{ character.character }}
+          </mat-option>
+
+          <mat-option value="" *ngIf="characters.length == 0 && term.trim().length > 0"> Nothing was found with the term {{ term }} </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </div>
+  <div *ngIf="characterSelect">
+    <app-hero-card [character]="characterSelect"></app-hero-card>
+  </div>
+
+</div>
