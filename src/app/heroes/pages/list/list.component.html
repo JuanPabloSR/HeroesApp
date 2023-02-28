@@ -1,21 +1,46 @@
 <p>list works!</p>
+<!-- <div class="container">
+  <div class="d-flex flex-row flex-wrap">
+    <div class="col-3" *ngFor="let character of characters">
+      <mat-card class="cards characters" >
+        <mat-card-header>
+          <mat-card-title>{{ character.character }}</mat-card-title>
+          <mat-card-subtitle>{{ character.bounty }}</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="assets/characters/{{ character.id }}.webp"
+          alt="Photo of Character"
+        />
 
-<ul>
+        <mat-card-content>
+          <h3>
+            <strong>Devil Fruit: </strong>
+            {{ character.devil_fruit }}
+          </h3>
+          <p>
+            <strong>First Appearance: </strong> {{ character.first_appearance }}
+            <br />
+            <strong>Affiliations: </strong> {{ character.affiliations }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="warn">read more...</button>
+          <button mat-raised-button color="accent">Edit</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 
-    <mat-card class="example-card" *ngFor="let character of characters">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{character.character}}</mat-card-title>
-        <mat-card-subtitle>{{character.bounty}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="assets/no-image.png" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-         {{character.devil_fruit}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-      </mat-card-actions>
-    </mat-card>
+</div> -->
 
-</ul>
+<div class="container">
+  <div class="row">
+    <div
+      class="col-lg-2 col-md-4 col-sm-12 mb-4"
+      *ngFor="let character of characters"
+    >
+    <app-hero-card [character]="character"></app-hero-card>
+    </div>
+  </div>
+</div>
