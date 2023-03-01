@@ -1,10 +1,17 @@
-<h1>New One Piece Character <small>{{character.character}}</small></h1>
+<h1>
+  New One Piece Character <small>{{ character.character }}</small>
+</h1>
 <div class="row">
   <div class="col-lg-6">
-    <div class="grid gap-0 column-gap-3">
+    <div class="grid gap-3 column-gap-3">
       <mat-form-field class="p-2 g-col-6">
         <mat-label>Character</mat-label>
-        <input matInput type="text" required [(ngModel)]="character.character"/>
+        <input
+          matInput
+          type="text"
+          required
+          [(ngModel)]="character.character"
+        />
       </mat-form-field>
 
       <mat-form-field class="p-2 g-col-6">
@@ -14,17 +21,32 @@
 
       <mat-form-field class="p-2 g-col-6">
         <mat-label>Devil Fruit</mat-label>
-        <input matInput type="text" required [(ngModel)]="character.devil_fruit"/>
+        <input
+          matInput
+          type="text"
+          required
+          [(ngModel)]="character.devil_fruit"
+        />
       </mat-form-field>
 
       <mat-form-field class="p-2 g-col-6">
         <mat-label>First Appearance</mat-label>
-        <input matInput type="text" required [(ngModel)]="character.first_appearance" />
+        <input
+          matInput
+          type="text"
+          required
+          [(ngModel)]="character.first_appearance"
+        />
       </mat-form-field>
 
       <mat-form-field class="all">
         <mat-label>Affiliations</mat-label>
-        <input matInput type="text" required  [(ngModel)]="character.affiliations"/>
+        <input
+          matInput
+          type="text"
+          required
+          [(ngModel)]="character.affiliations"
+        />
       </mat-form-field>
 
       <mat-form-field class="all">
@@ -33,20 +55,34 @@
       </mat-form-field>
 
       <br />
+      <div>
+        <button
+          mat-raised-button
+          color="accent"
+          class="all"
+          (click)="save()"
+        >
+          <mat-icon>edit</mat-icon>
+          Save Changes
+        </button>
 
-      <button
-        mat-raised-button
-        color="warn"
-        class="mb-2 all"
-        (click)="save()"
-      >
-        <mat-icon>edit</mat-icon>
-        Save Changes
-      </button>
+        <button *ngIf="character.id"
+          mat-raised-button
+          color="warn"
+          class="mt-2 mb-2 all"
+          (click)="delete()"
+        >
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
+      </div>
     </div>
   </div>
   <div class="col-lg-6">
-    2
-    <img [src]="character | image" alt="" />
+    <img
+      [src]="character | image"
+      alt=""
+      style="max-width: 100%; border-radius: 10px"
+    />
   </div>
 </div>
