@@ -4,11 +4,7 @@ export interface Character {
   bounty: string;
   devil_fruit: string;
   first_appearance: string;
-  affiliations: Affiliations;
+  affiliations: string;
   alt_img?: string;
 }
 
-export enum Affiliations {
-  StrawHatPiratesFourEmperors = 'Straw Hat Pirates, Four Emperors',
-  StrawHatPiratesStrawHatGrandFleet = 'Straw Hat Pirates, Straw Hat Grand Fleet',
-}

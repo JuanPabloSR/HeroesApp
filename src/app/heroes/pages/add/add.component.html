@@ -1,1 +1,52 @@
-<p>add works!</p>
+<h1>New One Piece Character <small>{{character.character}}</small></h1>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="grid gap-0 column-gap-3">
+      <mat-form-field class="p-2 g-col-6">
+        <mat-label>Character</mat-label>
+        <input matInput type="text" required [(ngModel)]="character.character"/>
+      </mat-form-field>
+
+      <mat-form-field class="p-2 g-col-6">
+        <mat-label>Bounty</mat-label>
+        <input matInput type="text" required [(ngModel)]="character.bounty" />
+      </mat-form-field>
+
+      <mat-form-field class="p-2 g-col-6">
+        <mat-label>Devil Fruit</mat-label>
+        <input matInput type="text" required [(ngModel)]="character.devil_fruit"/>
+      </mat-form-field>
+
+      <mat-form-field class="p-2 g-col-6">
+        <mat-label>First Appearance</mat-label>
+        <input matInput type="text" required [(ngModel)]="character.first_appearance" />
+      </mat-form-field>
+
+      <mat-form-field class="all">
+        <mat-label>Affiliations</mat-label>
+        <input matInput type="text" required  [(ngModel)]="character.affiliations"/>
+      </mat-form-field>
+
+      <mat-form-field class="all">
+        <mat-label>Photo Url</mat-label>
+        <input matInput type="url" required [(ngModel)]="character.alt_img" />
+      </mat-form-field>
+
+      <br />
+
+      <button
+        mat-raised-button
+        color="warn"
+        class="mb-2 all"
+        (click)="save()"
+      >
+        <mat-icon>edit</mat-icon>
+        Save Changes
+      </button>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    2
+    <img [src]="character | image" alt="" />
+  </div>
+</div>

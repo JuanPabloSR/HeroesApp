@@ -25,4 +25,8 @@ export class CharactersService {
     return this.http.get<Character[]>(`${this.BaseUrl}/characters?q=${term}&_limit=5`)
   }
 
+  addCharacter( character: Character): Observable<Character> {
+    return this.http.post<Character>(`${this.BaseUrl}/characters`, character)
+  }
+
 }
