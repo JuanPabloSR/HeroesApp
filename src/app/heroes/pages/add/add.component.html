@@ -1,5 +1,8 @@
 <h1>
-  New One Piece Character <small>{{ character.character }}</small>
+  {{
+    (character.id)? 'Edit' : 'New'
+  }}
+  One Piece Character <small>{{ character.character }}</small>
 </h1>
 <div class="row">
   <div class="col-lg-6">
@@ -55,21 +58,16 @@
       </mat-form-field>
 
       <br />
-      <div>
-        <button
-          mat-raised-button
-          color="accent"
-          class="all"
-          (click)="save()"
-        >
+      <div class="d-flex justify-content-between">
+        <button mat-raised-button color="accent" (click)="save()">
           <mat-icon>edit</mat-icon>
           Save Changes
         </button>
 
-        <button *ngIf="character.id"
+        <button
+          *ngIf="character.id"
           mat-raised-button
           color="warn"
-          class="mt-2 mb-2 all"
           (click)="delete()"
         >
           <mat-icon>delete</mat-icon>
