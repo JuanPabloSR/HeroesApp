@@ -1,4 +1,13 @@
-# HeroesApp
+# One Piece Characters App
+
+Application with login, route protection, connection with the backend and all crud methods implemented, styles made with angular material and bootstrap, use of components, services, routes, pipes, jsx, and angular auth guard.
+
+![heroes](https://user-images.githubusercontent.com/62584398/222569699-c2e8fc26-43b5-4bbb-a512-1ab2435941e8.gif)
+
+
+![heroes2](https://user-images.githubusercontent.com/62584398/222569718-d676527d-fa28-4d52-b9ed-539d5079071a.gif)
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
