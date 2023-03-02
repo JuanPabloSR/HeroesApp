@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap, Observable, of } from 'rxjs';
+import { tap, Observable, of, map } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { Auth } from '../../heroes/interface/auth.interfaces';
@@ -21,13 +21,23 @@ export class AuthService {
     if (!localStorage.getItem('token')) {
       return of(false);
     }
-    return of(true);
+
+    return this.http.get<Auth>(`${this.baseUrl}/users/1`).pipe(
+      map((auth) => {
+        this._auth = auth;
+        return true;
+      })
+    );
   }
 
   login() {
     return this.http.get<Auth>(`${this.baseUrl}/users/1`).pipe(
       tap((auth) => (this._auth = auth)),
-      tap((auth) => localStorage.setItem('id', auth.id))
+      tap((auth) => localStorage.setItem('token', auth.id))
     );
+  }
+
+  logout(){
+    this._auth = undefined;
   }
 }
